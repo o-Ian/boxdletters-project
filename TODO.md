@@ -2,3 +2,7 @@
 - ajustar a pagina Movie
 - adicionar mais conteudo na home
 - ajustar o html semantico das pages
+- pegar detalhes dos filmes 
+    - creditos (https://developer.themoviedb.org/reference/movie-credits)
+    - nomes alternativos (https://developer.themoviedb.org/reference/movie-alternative-titles)
+    - imagens (https://developer.themoviedb.org/reference/movie-images)
