@@ -8,7 +8,7 @@ export default function Navbar() {
     const navigator = useNavigate();
     const [searchText, setSearchText] = useState("")
 
-    function Search(e: React.SyntheticEvent) {
+    function Search(e: React.SubmitEvent<HTMLFormElement>) {
         e.preventDefault(); //REVIEW - ver se mantem esse preventDefault
         navigator('/search', { state: { search: searchText } })
     }
@@ -20,10 +20,10 @@ export default function Navbar() {
                 <h2>Boxdletters</h2>
             </Link>
 
-            <form>
+            <form onSubmit={Search}>
                 <div className={styles.search}>
                     <input type="text" placeholder="Search a movie" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchText(e.target.value)} />
-                    <button type="submit" onClick={Search}><FaMagnifyingGlass /></button>
+                    <button type="submit"><FaMagnifyingGlass /></button>
                 </div>
             </form>
         </nav>

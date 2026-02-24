@@ -15,7 +15,7 @@
     object-fit: cover;
     border: 1.5px solid #2F3D48;
     border-radius: 0.2em;
-    transition: 0.2s;
+    /* transition: 0.1s; */
 }
 
 .skeleton {
@@ -32,12 +32,13 @@
     background-color: #252C33;
     border: 1.5px solid #2F3D48;
     border-radius: 0.2em;
-    transition: 0.2s;
+    /* transition: 0.1s; */
 }
 
 .poster img:hover,
 .poster .skeleton:hover {
     border: 3.5px solid #00E054;
+    transition: 0.1s;
 }
 
 .info {

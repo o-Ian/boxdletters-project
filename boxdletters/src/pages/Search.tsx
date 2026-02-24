@@ -32,18 +32,26 @@ export default function Search() {
 
     return (
         <div className={styles.container_search}>
-                <h3>{(`Showing matches for "${searchText}"`).toUpperCase()}</h3>
-                <hr />
-                {movies && (
-                    movies.map(movie => {
-                        return (
-                            <>
-                                <SearchResult id={movie.id} key={movie.id} title={movie.title} original_title={movie.original_title} poster_path={movie.poster_path} release_date={movie.release_date} />
-                                <hr />
-                            </>
-                        )
-                    })
-                )}
+            <h3>{(`Showing matches for "${searchText}"`).toUpperCase()}</h3>
+            <hr />
+            {movies && (
+                movies.map(movie => {
+                    return (
+                        <>
+                            <SearchResult
+                                id={movie.id}
+                                key={movie.id}
+                                title={movie.title}
+                                original_title={movie.original_title}
+                                poster_path={movie.poster_path}
+                                release_date={movie.release_date}
+                                rating={movie.vote_average}
+                            />
+                            <hr />
+                        </>
+                    )
+                })
+            )}
         </div>
     )
 }
