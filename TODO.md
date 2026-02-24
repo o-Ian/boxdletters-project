@@ -6,3 +6,4 @@
     - creditos (https://developer.themoviedb.org/reference/movie-credits)
     - nomes alternativos (https://developer.themoviedb.org/reference/movie-alternative-titles)
     - imagens (https://developer.themoviedb.org/reference/movie-images)
+- ajustar o in e out do mouse no searchResults

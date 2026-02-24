@@ -37,7 +37,7 @@ export default function Search() {
             {movies && (
                 movies.map(movie => {
                     return (
-                        <>
+                        <div key={movie.id}>
                             <SearchResult
                                 id={movie.id}
                                 key={movie.id}
@@ -48,7 +48,7 @@ export default function Search() {
                                 rating={movie.vote_average}
                             />
                             <hr />
-                        </>
+                        </div>
                     )
                 })
             )}
