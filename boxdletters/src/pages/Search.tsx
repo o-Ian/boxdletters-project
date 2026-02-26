@@ -12,8 +12,6 @@ export default function Search() {
     const [movies, setMovies] = useState<MovieList[]>();
 
     useEffect(() => {
-        let is_mounted = true;
-
         if (!searchText?.trim()) return;
 
         const fetchSearchedMovie = async (search: string) => {            
@@ -25,11 +23,7 @@ export default function Search() {
             }
         }
 
-        is_mounted && fetchSearchedMovie(searchText)
-
-        return () => {
-            is_mounted = false
-        }
+        fetchSearchedMovie(searchText)
     }, [searchText])
 
     return (

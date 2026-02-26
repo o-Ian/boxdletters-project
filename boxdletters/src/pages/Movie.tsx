@@ -13,8 +13,6 @@ export default function Movie() {
     const [movie, setMovie] = useState<Movie>();
 
     useEffect(() => {
-        let is_mounted = true;
-
         const fetchMovie = async () => {
             try {
                 const movie_data = await getMovies(`${moviesURL}${id}`);
@@ -24,11 +22,7 @@ export default function Movie() {
             }
         }
 
-        is_mounted && fetchMovie();
-
-        return () => {
-            is_mounted = false;
-        }
+        fetchMovie();
     }, [])
 
     return (

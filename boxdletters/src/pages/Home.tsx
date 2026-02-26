@@ -8,41 +8,54 @@ import type MovieList from "../interfaces/MovieList";
 const moviesURL = import.meta.env.VITE_API
 
 export default function Home() {
-    const [topMovies, setTopMovies] = useState<MovieList[]>();
+    const [topMovies, setTopMovies] = useState<MovieList[]>([]);
+    const [popularMovies, setPopularMovies] = useState<MovieList[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        let is_mounted = true;
-
         const fetchMovies = async () => {
             try {
-                const top_rated_movies_data = await getMovies(`${moviesURL}top_rated`);
+                const [top_rated_movies_data, popular_movies_data] = await Promise.all([
+                    getMovies(`${moviesURL}top_rated`),
+                    getMovies(`${moviesURL}popular`)
+                ]);
+
                 setTopMovies(top_rated_movies_data.results);
+                setPopularMovies(popular_movies_data.results)
             } catch (error) {
                 console.error("ERROR FETCHING DATA: ", error)
+            } finally {
+                setIsLoading(false)
             }
         }
 
-        is_mounted && fetchMovies();
-
-        return () => {
-            is_mounted = false;
-        }
+        fetchMovies();
     }, [])
+
+    if (isLoading) return <Loader />;
 
     return (
         <>
-            {topMovies ? (
-                <div className={styles.container}>
-                    <div className={styles.welcome_text}>
-                        <h1>Welcome to Boxdletters</h1>
-                        <p>Find your new favorite movies with us! <br /> Start searching with <span>Boxdletters</span></p>
+            <div className={styles.container}>
+                <h1>Welcome to Boxdletters</h1>
+                <p>Find your new favorite movies with us! <br /> Start searching with <span>Boxdletters</span></p>
+                {topMovies.length > 0 && (
+                    <>
                         <h2>Top rated movies</h2>
-                    </div>
-                    <div className={styles.movies_container}>
-                        {topMovies && topMovies.map(movie => <MovieCard id={movie.id} key={movie.id} title={movie.title} release_date={movie.release_date} poster_path={movie.poster_path} />)}
-                    </div>
-                </div>
-            ) : (<Loader />)}
+                        <div className={styles.movies_container}>
+                            {topMovies.map(movie => <MovieCard id={movie.id} key={movie.id} title={movie.title} release_date={movie.release_date} poster_path={movie.poster_path} />)}
+                        </div>
+                    </>
+                )}
+                {popularMovies .length > 0 && (
+                    <>
+                        <h2>Popular movies</h2>
+                        <div className={styles.movies_container}>
+                            {popularMovies.map(movie => <MovieCard id={movie.id} key={movie.id} title={movie.title} release_date={movie.release_date} poster_path={movie.poster_path} />)}
+                        </div>
+                    </>
+                )}
+            </div>
         </>
     )
 }

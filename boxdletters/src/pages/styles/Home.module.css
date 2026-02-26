@@ -4,36 +4,34 @@
     justify-content: center;
     align-items: center;
     margin: 1em;
-}
-
-.welcome_text {
     color: #AABBCC;
     text-align: center;
     margin: 1em;
 }
 
-.welcome_text h1,
-.welcome_text h2 {
+.container h1,
+.container h2 {
     color: #F3F5F6;
 }
 
-.welcome_text p {
+.container p {
     font-size: 1.2em;
     font-weight: 300;
     margin: 1em;
 }
 
-.welcome_text span {
+.container span {
     color: #F3F5F6;
     font-style: italic;
 }
 
 .movies_container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    margin: 1em;
     gap: 1em;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    padding: 1em 0;
+    width: 100%;       
+    margin: 1em;
 }
