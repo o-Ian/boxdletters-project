@@ -1,0 +1,9 @@
+.credits p {
+    font-size: 0.8em;
+    border-radius: 0.2em;
+    padding: 0.2em 0.6em;
+    margin: 0.3em;
+    background-color: #283038;
+    box-shadow: 1px -1px 0px 0px #2f363d;
+    color: #99AABB;
+}

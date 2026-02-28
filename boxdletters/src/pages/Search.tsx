@@ -7,7 +7,7 @@ import styles from './styles/Search.module.css';
 
 export default function Search() {
     const [searchParams] = useSearchParams();
-    const searchText = searchParams.get("q")
+    const searchText = searchParams.get("q");
 
     const [movies, setMovies] = useState<MovieList[]>();
 

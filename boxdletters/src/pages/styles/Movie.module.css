@@ -25,9 +25,6 @@
     mask-composite: intersect;
 }
 
-
-
-
 .container {
     display: flex;
     position: absolute;
@@ -48,6 +45,10 @@
     width: 50em;
 }
 
+.overview {
+    color: #99AABB;
+}
+
 .info {
     display: flex;
     align-items: center;
@@ -56,4 +57,9 @@
 
 .info p {
     margin-left: 1em;
+}
+
+.credits {
+    display: flex;
+    flex-wrap: wrap;
 }

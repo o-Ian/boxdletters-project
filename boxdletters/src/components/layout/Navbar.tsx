@@ -11,7 +11,7 @@ export default function Navbar() {
     const Search = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!searchText.trim()) return;
-        navigator(`/search?q=${searchText}`)
+        navigator(`/search?q=${searchText}`);
     }
 
     return (
